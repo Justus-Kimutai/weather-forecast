@@ -182,7 +182,7 @@ img {
     opacity: .9;
 }
 
-@media(max-width:300px){
+@media(max-width:500px){
     .title{
         text-align: left;
         padding-left: 30px;
