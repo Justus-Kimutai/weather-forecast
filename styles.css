@@ -181,3 +181,62 @@ img {
     cursor: pointer;
     opacity: .9;
 }
+
+@media(min-width:300px){
+    .title{
+        text-align: left;
+        padding-left: 30px;
+    }
+    .container{
+        width: 90%;
+        height: 50vh;
+    }
+    .date{
+        font-size: 2rem;
+    }
+    .temp{
+        font-size: 1.5rem;
+    }
+    .city-name{
+        font-size: 1.1rem;
+    }
+    .switch-temp{
+        font-size: 1rem;
+        margin: 0 0 0 30px;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    .temp-div{
+        margin-left: 100px;
+    }
+    .row1{
+        padding: 20px 0 20px 30px;
+    }
+    .row2{
+        padding: 20px 0 20px 30px;
+    }
+    .day{
+        font-size: 1rem;
+    }
+    .condition-text{
+        font-size: 1rem;
+        margin-left: 100px;
+    }
+    .city-input-div{
+        margin-top: 50px;
+    }
+    #city-input{
+        font-size: 1rem;
+        padding: .3em;
+    }
+    .giphy{
+        width: 150px;
+        right: -18px;
+    }
+    .giphy img{
+        width: 150px;
+        height: 150px;
+    }
+}
+
+
