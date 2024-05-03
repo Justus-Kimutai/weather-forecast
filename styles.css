@@ -230,12 +230,13 @@ img {
         padding: .3em;
     }
     .giphy{
-        width: 150px;
-        right: -18px;
+        width: 120px;
+        right: -20px;
+        top: -10%;
     }
     .giphy img{
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
     }
 }
 
