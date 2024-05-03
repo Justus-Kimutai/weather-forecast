@@ -1,0 +1,112 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgb(10, 11, 49), rgb(151, 104, 112));
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    text-align: center;
+    background: url('Sunset.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50%;
+    border-radius: 20px;
+    position: relative;
+    height: 70vh;
+}
+
+.giphy {
+    position: absolute;
+    top: -10%;
+    right: -10px;
+    width: 250px;
+}
+
+.giphy img {
+    border-radius: 50%;
+}
+
+.row1 {
+    display: flex;
+    /* justify-content: space-evenly; */
+    padding-left: 130px;
+    align-items: center;
+    margin-top: 70px;
+    color: #ffff;
+
+    border: 2px solid red;
+}
+
+.date {
+    font-size: 8rem;
+    margin: 0;
+}
+
+.date {
+    border: 2px solid green;
+}
+
+.temp-div {
+    border: 2px solid rgb(217, 255, 0);
+    margin-left: 200px;
+}
+
+.temp {
+    border: 2px solid;
+    font-size: 6rem;
+    text-align: left;
+    margin: 0 0 20px 0;
+}
+
+.city {
+    display: flex;
+    justify-content: space-between;
+}
+
+.city-name {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.switch-temp {
+    font-size: 2rem;
+    margin: 0 0 0 100px;
+    text-align: center;
+
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    padding: .2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.switch-temp:hover,
+.switch-temp:focus{
+    cursor: pointer;
+    opacity: .9;
+}
+.title{ 
+    color: #fff;
+    letter-spacing: 2px;
+}
+
