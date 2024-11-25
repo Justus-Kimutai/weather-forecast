@@ -105,8 +105,10 @@ function app(){
         switchTemp.addEventListener('click',(e)=>{
             if (tempDiv.textContent.slice(-1) === 'c'){
                 tempDiv.textContent = `${data.temp.temp_f}F`;
+                switchTemp.textContent = '°c'
             }else{
                 tempDiv.textContent = `${data.temp.temp_c}°c`;
+                switchTemp.textContent = 'F'
             }
         }); 
     })
@@ -114,5 +116,6 @@ function app(){
 }
 
 app()
+
 
 
