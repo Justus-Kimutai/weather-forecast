@@ -1,12 +1,15 @@
 function convertDate(dateString) {
+   
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
       day: "2-digit",
       month: "2-digit",
     });
+
 }
 
 function getDayOfWeek() {
+
     const date = new Date();
 
     const dayOfWeekNumber = date.getDay();
@@ -15,26 +18,35 @@ function getDayOfWeek() {
     const dayOfWeekName = days[dayOfWeekNumber];
 
     return dayOfWeekName;
+
 }
 
 async function cityWeather(city){
     try{
         document.querySelector('.loading-anime').style.display = 'flex';
-        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=a7c33931d5f44680b1c54137240205&q=${city}`,{mode:'cors'});
+        console.log('city ', city);
+        
+        const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=CU28Q9JYUFTCYVN9ACM369ZZM&contentType=json`,{mode:'cors'});
+        
         const weatherData = await response.json();
-        // console.log(weatherData);
-        const location = weatherData.location.name;
+        console.log('weatherData ', weatherData);
+        const location = weatherData.address;
         const temp = 
             {
-                temp_c:Math.floor(weatherData.current.temp_c),
-                temp_f:Math.floor(weatherData.current.temp_f),
+                temp_c:Math.floor(weatherData.currentConditions.temp),
+                temp_f:Math.floor(((weatherData.currentConditions.temp )* (9/5) + 32)),
             }
-        const conditionTextDescription = weatherData.current.condition.text;
-        const localtime = weatherData.location.localtime;
-
+        const conditionTextDescription = weatherData.currentConditions.conditions;
+        console.log('conditionTextDescription ', conditionTextDescription);
+        
+        const localtime = weatherData.days[0].datetime;
+        console.log('localtime ', localtime);
+        
 
         const weatherGIF = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=EDpn2fkWpwzp8NlPT7LrJfK0yL4ssYTe&s=${conditionTextDescription}`,{mode:'cors'});
         const weatherGIFData = await weatherGIF.json()
+        console.log('weatherGIFData ', weatherGIFData);
+        
         const GIF = weatherGIFData.data.images.original.url;
 
         const data =  {
@@ -58,8 +70,8 @@ async function cityWeather(city){
     }
 }
 
+function app(){
 
- function app(){
     const userInput = document.querySelector('#city-input');
     const fetchBtn = document.querySelector('.submit-btn');
     const errorDiv = document.querySelector('.error-div');
@@ -81,7 +93,8 @@ async function cityWeather(city){
         }
         
         const data = await cityWeather(userInput.value);
-
+        console.log(data);
+        
         date.textContent = data.localtime;
         gifImg.src = data.GIF;
         tempDiv.textContent = `${data.temp.temp_c}°c`;
@@ -102,4 +115,4 @@ async function cityWeather(city){
 
 app()
 
-  
+
